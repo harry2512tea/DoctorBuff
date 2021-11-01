@@ -54,7 +54,21 @@ namespace DoctorBuff
                 SCP0492AbilityControl.DealAOEDamage(ev.Attacker, ev.Target, ZombieDamageAoe);
             }
 
-            SCP0492AbilityControl.Infect(ev.Attacker, ev.Target);
+            SCP0492AbilityControl.Infect(ev);
+            
+        }
+
+        public static void OnPlayerDying(DyingEventArgs ev)
+        {
+            if (ev.Killer.Role == RoleType.Scp0492)
+            {
+                Timing.CallDelayed(0.5f, () =>
+                {
+                    ev.Target.SetRole(RoleType.Scp0492, Exiled.API.Enums.SpawnReason.ForceClass, false);
+                });
+
+            }
+            SCP0492AbilityControl.Death(ev);
         }
 
         public static void OnRoleChange(ChangingRoleEventArgs ev)
@@ -106,7 +120,5 @@ namespace DoctorBuff
 
             }
         }
-
-        
     }
 }

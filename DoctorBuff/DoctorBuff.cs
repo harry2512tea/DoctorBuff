@@ -32,6 +32,7 @@ namespace DoctorBuff
             Server.RoundStarted += EventHandler.OnRoundStart;
             Player.Hurting += EventHandler.OnPlayerHit;
             Player.ItemUsed += EventHandler.UseItem;
+            Player.Dying += EventHandler.OnPlayerDying;
         }
         public override void OnDisabled()
         {
@@ -48,6 +49,7 @@ namespace DoctorBuff
             Server.RoundStarted -= EventHandler.OnRoundStart;
             Player.Hurting -= EventHandler.OnPlayerHit;
             Player.ItemUsed -= EventHandler.UseItem;
+            Player.Dying -= EventHandler.OnPlayerDying;
 
             SCP049AbilityControl.CureCounter = 0;
             SCP049AbilityControl.Cooldown = Config.Cooldown;

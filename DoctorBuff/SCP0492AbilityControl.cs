@@ -8,6 +8,8 @@ using Hints;
 using CommandSystem;
 using MEC;
 using Exiled.API.Features;
+using Exiled.Events.EventArgs;
+using Player = Exiled.API.Features.Player;
 
 namespace DoctorBuff
 {
@@ -48,13 +50,35 @@ namespace DoctorBuff
             }
         }
 
-        public static void Infect(Player A, Player T)
+        public static void Infect(HurtingEventArgs ev)
         {
-            if (A.Role == RoleType.Scp0492 && T.Team != Team.SCP && !Infected.Contains(A))
+            if (ev.Attacker.Role == RoleType.Scp0492 && ev.Target.Team != Team.SCP)
             {
-                T.HintDisplay.Show(new TextHint(DoctorBuff.config.InfectedMessage, new HintParameter[] { new StringHintParameter("") }, null, 5f));
-                Infected.Add(A);
+                if (Infected.Count == 0)
+                {
+                    try
+                    {
+                        Timing.KillCoroutines("Infection");
+                    }
+                    catch { }
+                    Timing.RunCoroutine(SCP0492AbilityControl.DamageInfected(), "Infection");
+                }
+
+                if (!Infected.Contains(ev.Target))
+                {
+                    ev.Target.HintDisplay.Show(new TextHint(DoctorBuff.config.InfectedMessage, new HintParameter[] { new StringHintParameter("") }, null, 5f));
+                    Infected.Add(ev.Target);
+                }
             }
+        }
+
+        public static void Death(DyingEventArgs ev)
+        {            
+            try
+            {
+                Infected.Remove(ev.Target);
+            }
+            catch { }
         }
 
         public static void Cure(Player P)
@@ -62,8 +86,10 @@ namespace DoctorBuff
             P.HintDisplay.Show(new TextHint(DoctorBuff.config.CuredMessage, new HintParameter[] { new StringHintParameter("") }, null, 5f));
             Infected.Remove(P);
         }
+
         public static IEnumerator<float> DamageInfected()
         {
+            Vector3 oldPos;
             while(true)
             {
                 foreach(Player p in Infected)
@@ -71,12 +97,20 @@ namespace DoctorBuff
                     
                     if (p.Health - InfectDamage > 0 && Infection && !p.IsGodModeEnabled)
                     {
-                        p.Health -= InfectDamage;
+                        p.Hurt(InfectDamage);
                     }
                     else if (Infection && !p.IsGodModeEnabled)
                     {
+                        oldPos = p.Position;
+
+
                         p.SetRole(RoleType.Scp0492);
                         Infected.Remove(p);
+
+                        Timing.CallDelayed(0.5f, () =>
+                        {
+                            p.Position = new Vector3(oldPos.x, oldPos.y, oldPos.z);
+                        });
                     }
                 }
                 yield return Timing.WaitForSeconds(InfectionInterval);
