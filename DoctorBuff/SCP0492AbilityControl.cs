@@ -83,8 +83,11 @@ namespace DoctorBuff
 
         public static void Cure(Player P)
         {
-            P.HintDisplay.Show(new TextHint(DoctorBuff.config.CuredMessage, new HintParameter[] { new StringHintParameter("") }, null, 5f));
-            Infected.Remove(P);
+            if (Infected.Contains(P))
+            {
+                P.HintDisplay.Show(new TextHint(DoctorBuff.config.CuredMessage, new HintParameter[] { new StringHintParameter("") }, null, 5f));
+                Infected.Remove(P);
+            }
         }
 
         public static IEnumerator<float> DamageInfected()
