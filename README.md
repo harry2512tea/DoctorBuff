@@ -31,3 +31,6 @@ A plugin that reworks SCP-049 and SCP-049-2 instances, adding new active and pas
 | InfectInterval | Float | 2.0f | Time between infection damage ticks |
 | InfectDamage | Float | 5f | Damage done per infection tick |
 | HealChance | float | 50f | Percentage chance to cure the infection using a medkit |
+
+## Disclaimer
+This plugin is heavily influenced by the initial creator of [this plugin](https://github.com/rby-blackruby/DocRework/tree/master) who is no longer supporting their version.
