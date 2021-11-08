@@ -12,13 +12,13 @@ namespace DoctorBuff
 {
     public class Config : IConfig
     {
-        [Description("Enable or disable DocRework's mechanics")]
+        [Description("Enable or disable the plugin")]
         public bool IsEnabled { get; set; } = true;
 
         [Description("Set the minimum cure amount for the buff area to kick in")]
         public uint MinCures { get; set; } = 3;
 
-        [Description("Size of 049's healing radius")]
+        [Description("Size of SCP-049's healing radius")]
         public float HealRadius { get; set; } = 2.6f;
 
         [Description("The amount of HP the Doc heals their Zombies")]
