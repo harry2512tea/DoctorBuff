@@ -33,59 +33,64 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\..\references\0Harmony.dll</HintPath>
+      <HintPath>F:\SCP Plugins\References\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="AmplifyBloom">
-      <HintPath>..\..\..\references\AmplifyBloom.dll</HintPath>
+      <HintPath>F:\SCP Plugins\References\AmplifyBloom.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\..\references\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>F:\SCP Plugins\References\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp_publicized">
-      <HintPath>..\..\..\references\publicized_assemblies\Assembly-CSharp_publicized.dll</HintPath>
+      <HintPath>F:\SCP Plugins\References\Assembly-CSharp_publicized.dll</HintPath>
     </Reference>
     <Reference Include="CommandSystem.Core">
-      <HintPath>..\..\..\references\CommandSystem.Core.dll</HintPath>
+      <HintPath>F:\SCP Plugins\References\CommandSystem.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.API, Version=3.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\EXILED\EXILED\Plugins\dependencies\Exiled.API.dll</HintPath>
+    <Reference Include="Exiled.API">
+      <HintPath>F:\SCP Plugins\References\Exiled.API.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.CreditTags, Version=3.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\EXILED\EXILED\Plugins\Exiled.CreditTags.dll</HintPath>
+    <Reference Include="Exiled.CreditTags">
+      <HintPath>F:\SCP Plugins\References\Exiled.CreditTags.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.CustomItems, Version=3.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\EXILED\EXILED\Plugins\Exiled.CustomItems.dll</HintPath>
+    <Reference Include="Exiled.CustomItems">
+      <HintPath>F:\SCP Plugins\References\Exiled.CustomItems.dll</HintPath>
     </Reference>
     <Reference Include="Exiled.CustomRoles">
-      <HintPath>..\..\..\..\..\EXILED\EXILED\Plugins\Exiled.CustomRoles.dll</HintPath>
+      <HintPath>F:\SCP Plugins\References\Exiled.CustomRoles.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.Events, Version=3.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\EXILED\EXILED\Plugins\Exiled.Events.dll</HintPath>
+    <Reference Include="Exiled.Events">
+      <HintPath>F:\SCP Plugins\References\Exiled.Events.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.Loader, Version=3.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\EXILED\EXILED\Exiled.Loader.dll</HintPath>
+    <Reference Include="Exiled.Loader">
+      <HintPath>F:\SCP Plugins\References\Exiled.Loader.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.Permissions, Version=3.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\EXILED\EXILED\Plugins\Exiled.Permissions.dll</HintPath>
+    <Reference Include="Exiled.Permissions">
+      <HintPath>F:\SCP Plugins\References\Exiled.Permissions.dll</HintPath>
     </Reference>
-    <Reference Include="Exiled.Updater, Version=3.1.1.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\EXILED\EXILED\Plugins\Exiled.Updater.dll</HintPath>
+    <Reference Include="Exiled.Updater">
+      <HintPath>F:\SCP Plugins\References\Exiled.Updater.dll</HintPath>
     </Reference>
     <Reference Include="Mirror">
-      <HintPath>..\..\..\references\Mirror.dll</HintPath>
+      <HintPath>F:\SCP Plugins\References\Mirror.dll</HintPath>
     </Reference>
     <Reference Include="SemVer">
-      <HintPath>..\..\..\references\SemVer.dll</HintPath>
+      <HintPath>F:\SCP Plugins\References\SemVer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\SCP Plugins\References\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\SCP Plugins\References\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\SCP Plugins\References\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -93,13 +98,13 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\references\UnityEngine.dll</HintPath>
+      <HintPath>F:\SCP Plugins\References\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\references\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>F:\SCP Plugins\References\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="YamlDotNet">
-      <HintPath>..\..\..\references\YamlDotNet.dll</HintPath>
+      <HintPath>F:\SCP Plugins\References\YamlDotNet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
