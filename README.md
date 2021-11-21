@@ -1,8 +1,16 @@
 # DoctorBuff
-A plugin that reworks SCP-049 and SCP-049-2 instances, adding new active and passive abilities.
+A plugin that reworks SCP-049 and SCP-049-2 instances, adding new active and passive abilities. This plugin allows easy buffs of zombies, and makes them more fun to play. The doctor recieves two new abilties that make them more fun to play, and make it easier to build zombie hoards!
+
 ## Features
+* The doctor can heal zombies within a specified area around them.
+* The doctor can summon zombies from the spectator chat after a specified cooldown.
+* Option for zombies to deal AOE damage, making them more dangerous in groups.
+* Zombies can infect other players.
+* On being killed by a zombie, the player turns into a zombie.
+* Ability to set zombie's base health.
 
 ## Releases
+[Releases found here](https://github.com/harry2512tea/DoctorBuff/releases)
 
 ## Config:
 | Option | Value Type | Default | Description |
@@ -23,3 +31,6 @@ A plugin that reworks SCP-049 and SCP-049-2 instances, adding new active and pas
 | InfectInterval | Float | 2.0f | Time between infection damage ticks |
 | InfectDamage | Float | 5f | Damage done per infection tick |
 | HealChance | float | 50f | Percentage chance to cure the infection using a medkit |
+
+## Disclaimer
+This plugin is heavily influenced by the initial creator of [this plugin](https://github.com/rby-blackruby/DocRework/tree/master) who is no longer supporting their version.

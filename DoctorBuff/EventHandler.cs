@@ -66,7 +66,7 @@ namespace DoctorBuff
 
         public static void OnPlayerDying(DyingEventArgs ev)
         {
-            if (ev.Killer.Role == RoleType.Scp0492)
+            if (ev.Killer.Role == RoleType.Scp0492 && ev.Killer != ev.Target && ev.Killer != null)
             {
                 Timing.CallDelayed(0.5f, () =>
                 {
