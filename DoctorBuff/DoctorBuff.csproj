@@ -103,6 +103,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="EventHandler.cs" />
     <Compile Include="DoctorBuff.cs" />

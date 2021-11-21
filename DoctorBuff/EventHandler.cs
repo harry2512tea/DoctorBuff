@@ -16,6 +16,7 @@ namespace DoctorBuff
         private static bool ZombieEnableAOE = DoctorBuff.config.ZombieEnableAoe;
         private static float ZombieDamageAoe = DoctorBuff.config.ZombieDamageAOE;
         private static float CureChance = DoctorBuff.config.HealChance;
+        private static float InfectChance = DoctorBuff.config.InfectionChance;
         
         public static void OnFinishingRecall(FinishingRecallEventArgs ev)
         {
@@ -49,12 +50,17 @@ namespace DoctorBuff
 
         public static void OnPlayerHit(HurtingEventArgs ev)
         {
+            System.Random rnd = new System.Random();
+
             if (ZombieEnableAOE && SCP049AbilityControl.CureCounter >= DoctorBuff.config.MinCures)
             {
                 SCP0492AbilityControl.DealAOEDamage(ev.Attacker, ev.Target, ZombieDamageAoe);
             }
-
-            SCP0492AbilityControl.Infect(ev);
+            if (rnd.Next(1, 100) < InfectChance)
+            {
+                SCP0492AbilityControl.Infect(ev);
+            }
+            
             
         }
 

@@ -24,6 +24,7 @@ namespace DoctorBuff
         private static bool Infection = DoctorBuff.config.ZombieInfection;
         private static float InfectionInterval = DoctorBuff.config.InfectInterval;
         private static float InfectDamage = DoctorBuff.config.InfectDamage;
+        private static bool InfectTurn = DoctorBuff.config.InfectedAlwaysTurn;
         public static void DealAOEDamage(Player A, Player T, float AOEDamage)
         {
             if (A.Role != RoleType.Scp0492 || T.Team == Team.SCP)
@@ -74,6 +75,13 @@ namespace DoctorBuff
 
         public static void Death(DyingEventArgs ev)
         {            
+            if (InfectTurn && Infected.Contains(ev.Target) && ev.Target != ev.Killer)
+            {
+                Timing.CallDelayed(0.5f, () =>
+                {
+                    ev.Target.SetRole(RoleType.Scp0492, Exiled.API.Enums.SpawnReason.ForceClass, false);
+                });
+            }
             try
             {
                 Infected.Remove(ev.Target);
