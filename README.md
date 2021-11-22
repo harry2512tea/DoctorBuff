@@ -8,6 +8,8 @@ A plugin that reworks SCP-049 and SCP-049-2 instances, adding new active and pas
 * Zombies can infect other players.
 * On being killed by a zombie, the player turns into a zombie.
 * Ability to set zombie's base health.
+* Ability to change the chance to become infected
+* Option to make any infected become zombies regardless of the circumstances of their death
 
 ## Releases
 [Releases found here](https://github.com/harry2512tea/DoctorBuff/releases)
