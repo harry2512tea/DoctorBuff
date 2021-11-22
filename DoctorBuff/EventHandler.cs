@@ -11,12 +11,6 @@ namespace DoctorBuff
 {
     public class EventHandler
     {
-        private static bool DocHeal = DoctorBuff.config.DocHeal;
-        private static float MissingHealthRecovery = DoctorBuff.config.HealthRecover;
-        private static bool ZombieEnableAOE = DoctorBuff.config.ZombieEnableAoe;
-        private static float ZombieDamageAoe = DoctorBuff.config.ZombieDamageAOE;
-        private static float CureChance = DoctorBuff.config.HealChance;
-        private static float InfectChance = DoctorBuff.config.InfectionChance;
         
         public static void OnFinishingRecall(FinishingRecallEventArgs ev)
         {
@@ -39,12 +33,12 @@ namespace DoctorBuff
 
             if (DoctorBuff.config.HealType == 1 && SCP049AbilityControl.CureCounter > DoctorBuff.config.MinCures)
             {
-                SCP049AbilityControl.HealAmountPercent *= DoctorBuff.config.HealAmountMultiplier;
+                DoctorBuff.config.ZomHealAmountPercentage *= DoctorBuff.config.HealAmountMultiplier;
             }
 
-            if (DocHeal)
+            if (DoctorBuff.config.DocHeal)
             {
-                SCP049AbilityControl.ApplySelfHeal(ev.Scp049, MissingHealthRecovery);
+                SCP049AbilityControl.ApplySelfHeal(ev.Scp049, DoctorBuff.config.HealthRecover);
             }
         }
 
@@ -52,11 +46,11 @@ namespace DoctorBuff
         {
             System.Random rnd = new System.Random();
 
-            if (ZombieEnableAOE && SCP049AbilityControl.CureCounter >= DoctorBuff.config.MinCures)
+            if (DoctorBuff.config.ZombieEnableAoe && SCP049AbilityControl.CureCounter >= DoctorBuff.config.MinCures)
             {
-                SCP0492AbilityControl.DealAOEDamage(ev.Attacker, ev.Target, ZombieDamageAoe);
+                SCP0492AbilityControl.DealAOEDamage(ev.Attacker, ev.Target, DoctorBuff.config.ZombieDamageAOE);
             }
-            if (rnd.Next(1, 100) < InfectChance)
+            if (rnd.Next(1, 100) < DoctorBuff.config.InfectionChance)
             {
                 SCP0492AbilityControl.Infect(ev);
             }
@@ -113,7 +107,7 @@ namespace DoctorBuff
             {
                 case ItemType.Medkit:
 
-                    if(rnd.Next(1, 100) <  CureChance)
+                    if(rnd.Next(1, 100) < DoctorBuff.config.HealChance)
                     {
                         SCP0492AbilityControl.Cure(ev.Player);
                     }

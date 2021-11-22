@@ -21,10 +21,6 @@ namespace DoctorBuff
 
         public static uint CureCounter = 0;
         public static ushort Cooldown;
-        private static float Radius = DoctorBuff.config.HealRadius;
-        private static float HealAmountFlat = DoctorBuff.config.HealAmountFlat;
-        public static float HealAmountPercent = DoctorBuff.config.ZomHealAmountPercentage;
-        private static byte HealType = DoctorBuff.config.HealType;
 
         public static IEnumerator<float> EngageBuff()
         {
@@ -34,9 +30,9 @@ namespace DoctorBuff
                 {
                     foreach (Player Z in Player.List.Where(r => r.Role == RoleType.Scp0492))
                     {
-                        if (Vector3.Distance(D.Position, Z.Position) <= Radius)
+                        if (Vector3.Distance(D.Position, Z.Position) <= DoctorBuff.config.HealRadius)
                         {
-                            ApplyHeal(HealType, Z, HealAmountFlat, HealAmountPercent);
+                            ApplyHeal(DoctorBuff.config.HealType, Z, DoctorBuff.config.HealAmountFlat, DoctorBuff.config.ZomHealAmountPercentage);
                         }
                     }
                 }

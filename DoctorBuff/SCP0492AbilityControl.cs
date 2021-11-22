@@ -21,10 +21,6 @@ namespace DoctorBuff
 
         public static List<Player> Infected = new List<Player>();
 
-        private static bool Infection = DoctorBuff.config.ZombieInfection;
-        private static float InfectionInterval = DoctorBuff.config.InfectInterval;
-        private static float InfectDamage = DoctorBuff.config.InfectDamage;
-        private static bool InfectTurn = DoctorBuff.config.InfectedAlwaysTurn;
         public static void DealAOEDamage(Player A, Player T, float AOEDamage)
         {
             if (A.Role != RoleType.Scp0492 || T.Team == Team.SCP)
@@ -75,7 +71,7 @@ namespace DoctorBuff
 
         public static void Death(DyingEventArgs ev)
         {            
-            if (InfectTurn && Infected.Contains(ev.Target) && ev.Target != ev.Killer)
+            if (DoctorBuff.config.InfectedAlwaysTurn && Infected.Contains(ev.Target) && ev.Target != ev.Killer)
             {
                 Timing.CallDelayed(0.5f, () =>
                 {
@@ -106,11 +102,11 @@ namespace DoctorBuff
                 foreach(Player p in Infected)
                 {
                     
-                    if (p.Health - InfectDamage > 0 && Infection && !p.IsGodModeEnabled)
+                    if (p.Health - DoctorBuff.config.InfectDamage > 0 && DoctorBuff.config.ZombieInfection && !p.IsGodModeEnabled)
                     {
-                        p.Hurt(InfectDamage);
+                        p.Hurt(DoctorBuff.config.InfectDamage);
                     }
-                    else if (Infection && !p.IsGodModeEnabled)
+                    else if (DoctorBuff.config.ZombieInfection && !p.IsGodModeEnabled)
                     {
                         oldPos = p.Position;
 
@@ -124,7 +120,7 @@ namespace DoctorBuff
                         });
                     }
                 }
-                yield return Timing.WaitForSeconds(InfectionInterval);
+                yield return Timing.WaitForSeconds(DoctorBuff.config.InfectInterval);
             }
         }
 
