@@ -14,8 +14,8 @@ namespace DoctorBuff
         public EventHandler EventHandler;
         public override string Name { get; } = "Doctor Buff";
         public override string Author { get; } = "Thire";
-        public override Version Version { get; } = new Version(1, 1, 1);
-        public override Version RequiredExiledVersion { get; } = new Version(3, 6, 2);
+        public override Version Version { get; } = new Version(1, 1, 2);
+        public override Version RequiredExiledVersion { get; } = new Version(3, 7, 2);
         public override string Prefix { get; } = "DB";
         public override PluginPriority Priority { get; } = PluginPriority.Medium;
 

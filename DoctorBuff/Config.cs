@@ -55,7 +55,7 @@ namespace DoctorBuff
         public bool ZombieInfection { get; set; } = true;
 
         [Description("Percentage chance of getting infected when hit by a zombie. 0 for never, 100 for always getting infected")]
-        public float InfectionChance = 75f;
+        public float InfectionChance { get; set; } = 75f;
 
         [Description("Delay between infection damage")]
         public float InfectInterval { get; set; } = 2.0f;
@@ -67,7 +67,7 @@ namespace DoctorBuff
         public float HealChance { get; set; } = 50f;
 
         [Description("whether or not infected individuals always turn into zombies, regardless of what kills them")]
-        public bool InfectedAlwaysTurn = false;
+        public bool InfectedAlwaysTurn { get; set; } = false;
 
         [Description("Message displayed to players who are infected")]
         public string InfectedMessage { get; set; } = "You have been infected by a Zombie. \nUse SCP-500 or a medkit to cure yourself";
