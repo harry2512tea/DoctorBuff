@@ -8,6 +8,8 @@ A plugin that reworks SCP-049 and SCP-049-2 instances, adding new active and pas
 * Zombies can infect other players.
 * On being killed by a zombie, the player turns into a zombie.
 * Ability to set zombie's base health.
+* Ability to change the chance to become infected
+* Option to make any infected become zombies regardless of the circumstances of their death
 
 ## Releases
 [Releases found here](https://github.com/harry2512tea/DoctorBuff/releases)
@@ -28,9 +30,11 @@ A plugin that reworks SCP-049 and SCP-049-2 instances, adding new active and pas
 | ZombieEnableAOE | Bool | false | Whether or not zombies should deal AOE damage |
 | ZombieHealth | int | 300 | Base health for zombies |
 | ZombieInfection | Bool | true | Whether zombie infection should be enabled or not |
+| InfectionChance | Float | 75 | The percentage chance of being infected after a zombie hits you |
 | InfectInterval | Float | 2.0f | Time between infection damage ticks |
 | InfectDamage | Float | 5f | Damage done per infection tick |
 | HealChance | float | 50f | Percentage chance to cure the infection using a medkit |
+| InfectedAlwaysTurn | Bool | false | whether or not an infected individual should turn into a zombie, regardless of how they die |
 
 ## Disclaimer
 This plugin is heavily influenced by the initial creator of [this plugin](https://github.com/rby-blackruby/DocRework/tree/master) who is no longer supporting their version.
